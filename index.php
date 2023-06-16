@@ -16,8 +16,8 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
 
 $db_list = mysqli_query($conn, "SHOW DATABASES");
 
-while ($row = mysql_fetch_object($db_list)) {
- echo $row->Database . "\n";
-}  
+while ($obj = mysqli_fetch_object($db_list)) {
+    printf("%s\n", $obj->Database);
+}
 
 ?>
