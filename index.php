@@ -1,7 +1,7 @@
 <?php
 
 echo "Hello World!" ; 
-echo 'ur mum'
+echo 'ur mum';
 
 
 // //Get Heroku ClearDB connection information
@@ -15,6 +15,6 @@ echo 'ur mum'
 // // Connect to DB
 // $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
-// echo "Client library version: %s\n";
+echo "Client library version: %s\n", mysqli_get_client_info()
 
 ?>
