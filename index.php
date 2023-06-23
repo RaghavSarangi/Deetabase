@@ -43,7 +43,7 @@ else {echo($conn->host_info . "\n");}
 $db_list = mysqli_query($conn, "SHOW DATABASES");
 
 while ($obj = mysqli_fetch_object($db_list)) {
-    echo("\n" . $obj->Database);
+    echo("<br>" . $obj->Database);
 }
 
 ?>
