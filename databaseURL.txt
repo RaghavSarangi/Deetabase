@@ -1,0 +1,6 @@
+mysql://b23e75f26e89a2:e418e54f@us-cdbr-east-06.cleardb.net/heroku_605273051409b5f?reconnect=true
+
+Username: b23e75f26e89a2
+Password: e418e54f
+Host: us-cdbr-east-06.cleardb.net
+Database Name: 

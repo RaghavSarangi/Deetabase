@@ -1,3 +1,25 @@
+<html>
+<head>
+  <title>CMS TFPx Deetabase</title>
+  <link rel="StyleSheet" type="text/css" href="theme.css"/>
+</head>
+<body>
+
+<h1 align="center"> CMS TFPx Deetabase </h1>
+
+<div class="login">
+<h2> User Login </h2>
+<form action="index.php" method="post" enctype='multipart/form-data'>
+  <b>Username</b><br/>     <input type="text" name="username"> <br/><br/>
+  <b>Password</b><br/>     <input type="password" name="userpass"> <br/><br/>
+  <input type="submit" value="Sign In">
+</form>
+Don't have an account? <a href="signup.php">Sign up now.</a><br/>
+</div>
+<br/>
+
+
+
 <?php
 
 echo "Hello World!" ; 
