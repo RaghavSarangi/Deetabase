@@ -38,12 +38,12 @@ if ($mysqli -> connect_errno) {
   echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
   exit();
 }
-else {echo($conn->host_info, "<br>");}
+else {echo($conn->host_info . "\n");}
 
 $db_list = mysqli_query($conn, "SHOW DATABASES");
 
 while ($obj = mysqli_fetch_object($db_list)) {
-    echo($obj->Database, "<br>");
+    echo("\n" . $obj->Database);
 }
 
 ?>
