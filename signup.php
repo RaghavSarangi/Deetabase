@@ -31,10 +31,10 @@
         $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
         $sqlQuery = "SELECT affiliation FROM affiliations";
-        $queryResult = mysqli_query($connection, $sqlQuery);
+        $queryResult = mysqli_query($conn, $sqlQuery);
         while ($map_output = mysqli_fetch_assoc($queryResult))
           echo "      <option value='".$map_output["affiliation"]."'>".$map_output["affiliation"]."</option> \n";
-        mysqli_close($connection);
+        mysqli_close($conn);
       ?>
     </select><br/><br/>
   <b>Email</b><br/>             <input type="text" name="email"> <br/><br/>
