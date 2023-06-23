@@ -22,11 +22,9 @@ Don't have an account? <a href="signup.php">Sign up now.</a><br/>
 
 <?php
 
-echo "Hello World!" ; 
-
-
 //Get Heroku ClearDB connection information
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
 $cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
@@ -35,11 +33,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+echo $conn->host_info . "\n";
 
-$db_list = mysqli_query($conn, "SHOW DATABASES");
+// $db_list = mysqli_query($conn, "SHOW DATABASES");
 
-while ($obj = mysqli_fetch_object($db_list)) {
-    printf("%s\n", $obj->Database);
-}
+// while ($obj = mysqli_fetch_object($db_list)) {
+//     printf("%s\n", $obj->Database);
+// }
 
 ?>
