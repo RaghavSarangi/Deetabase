@@ -40,10 +40,28 @@ if ($mysqli -> connect_errno) {
 }
 else {echo($conn->host_info . "\n");}
 
-$db_list = mysqli_query($conn, "SHOW DATABASES");
+$createAffiliations = mysqli_query($conn, "CREATE TABLE affiliations
+(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  affiliation VARCHAR(50)
+);");
 
-while ($obj = mysqli_fetch_object($db_list)) {
-    echo("<br>" . $obj->Database);
-}
+$createUsers = mysqli_query($conn, "CREATE TABLE users
+(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  userpass VARCHAR(255) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  firstname VARCHAR(100) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  affiliation VARCHAR(50),
+  email VARCHAR(50) NOT NULL,
+  privilege VARCHAR(50) NOT NULL
+);");
+
+
+// while ($obj = mysqli_fetch_object($db_list)) {
+//     echo("<br>" . $obj->Database);
+// }
 
 ?>
