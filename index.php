@@ -35,15 +35,15 @@ $query_builder = TRUE;
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
   exit();
 }
-else {echo $conn->host_info . "\n";}
+else {echo($conn->host_info, "<br>");}
 
 $db_list = mysqli_query($conn, "SHOW DATABASES");
 
 while ($obj = mysqli_fetch_object($db_list)) {
-    echo "%s\n", $obj->Database;
+    echo($obj->Database, "<br>");
 }
 
 ?>
