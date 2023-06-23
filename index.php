@@ -33,12 +33,17 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-echo $conn->host_info . "\n";
 
-// $db_list = mysqli_query($conn, "SHOW DATABASES");
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+else {echo $conn->host_info . "\n";}
 
-// while ($obj = mysqli_fetch_object($db_list)) {
-//     printf("%s\n", $obj->Database);
-// }
+$db_list = mysqli_query($conn, "SHOW DATABASES");
+
+while ($obj = mysqli_fetch_object($db_list)) {
+    echo "%s\n", $obj->Database;
+}
 
 ?>
