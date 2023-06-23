@@ -100,6 +100,11 @@ Already have an account? <a href="index.php"> Login here.</a>
   }
 ?>
 
+<p align="right">
+Author: Souvik Das <br/>
+Purdue University, 2021 <br/>
+souvik@purdue.edu
+</p>
 
 </body>
 </html>

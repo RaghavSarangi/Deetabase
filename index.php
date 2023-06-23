@@ -18,6 +18,11 @@ Don't have an account? <a href="signup.php">Sign up now.</a><br/>
 </div>
 <br/>
 
+<p align="right">
+Author: Souvik Das <br/>
+Purdue University, 2021 <br/>
+souvik@purdue.edu
+</p>
 
 
 <?php
@@ -40,24 +45,6 @@ if ($mysqli -> connect_errno) {
 }
 else {echo($conn->host_info . "\n");}
 
-$createAffiliations = mysqli_query($conn, "CREATE TABLE affiliations
-(
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  affiliation VARCHAR(50)
-);");
-
-$createUsers = mysqli_query($conn, "CREATE TABLE users
-(
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  username VARCHAR(50) NOT NULL UNIQUE,
-  userpass VARCHAR(255) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  firstname VARCHAR(100) NOT NULL,
-  lastname VARCHAR(50) NOT NULL,
-  affiliation VARCHAR(50),
-  email VARCHAR(50) NOT NULL,
-  privilege VARCHAR(50) NOT NULL
-);");
 
 
 // while ($obj = mysqli_fetch_object($db_list)) {
@@ -65,3 +52,12 @@ $createUsers = mysqli_query($conn, "CREATE TABLE users
 // }
 
 ?>
+
+<p align="right">
+Author: Souvik Das <br/>
+Purdue University, 2021 <br/>
+souvik@purdue.edu
+</p>
+
+</body>
+</html>
