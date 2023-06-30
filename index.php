@@ -45,12 +45,49 @@ if ($conn -> connect_errno) {
   echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
   exit();
 }
-else {echo($conn->host_info . "\n");}
+else {
+    // echo($conn->host_info . "\n");
+}
 
 // $db_list = mysqli_query($conn, "SHOW DATABASES");
 // while ($obj = mysqli_fetch_object($db_list)) {
 //     echo("<br>" . $obj->Database);
 // }
+
+  if (isset($_POST["username"]) && isset($_POST["userpass"]))
+  {
+    $username = $_POST["username"];
+    $userpass = $_POST["userpass"];
+
+    $allOkay = true;
+    if ($username == "") {echo "<b><center>You need to enter a username.</center></b><br/> \n"; $allOkay = false;}
+    if ($userpass == "") {echo "<b><center>You need to enter a password.</center></b><br/> \n"; $allOkay = false;}
+
+    if ($allOkay)
+    {
+      $sqlQuery = "SELECT * FROM users WHERE username='".$username."'";
+      $map_output = mysqli_fetch_assoc(mysqli_query($conn, $sqlQuery));
+
+      if ($map_output["username"] != "")
+      {
+        if (password_verify($userpass, $map_output["userpass"]))
+        {
+          session_start();
+          $_SESSION["loggedin"]    = true;
+          $_SESSION["username"]    = $username;
+          $_SESSION["userId"]      = $map_output["id"];
+          $_SESSION["firstname"]   = $map_output["firstname"];
+          $_SESSION["lastname"]    = $map_output["lastname"];
+          $_SESSION["affiliation"] = $map_output["affiliation"];
+          $_SESSION["privilege"]   = $map_output["privilege"];
+
+          header("location: main.php");
+        }
+        else echo "<b><center>The password you entered is not valid.</center></b><br/> \n";
+      }
+      else echo "<b><center>The username you entered has not been registered.</center></b><br/> \n";
+    }
+  }
 
 ?>
 
