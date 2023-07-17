@@ -17,6 +17,19 @@ CREATE TABLE users
   privilege ENUM('Viewer', 'Editor', 'Administrator')
 );
 
+CREATE TABLE Dees
+(
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  operators VARCHAR(100) NOT NULL,
+  carbon_fiber_top_serial_num VARCHAR(50),
+  carbon_fiber_bottom_serial_num VARCHAR(50),
+  carbon_foam_serial_num VARCHAR(50),
+  periphery_serial_num VARCHAR(50),
+  manufacture_datetime DATETIME,
+  modules_included TINYTEXT,
+  x-ray_evaluation TEXT 
+);
+
 CREATE TABLE sheets
 (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

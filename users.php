@@ -1,11 +1,11 @@
 <html>
 <head>
-  <title>CMS Tracker Flat Sheets Database</title>
+  <title>CMS TFPx Deetabase</title>
   <link rel="StyleSheet" type="text/css" href="theme.css"/>
 </head>
 <body>
 
-<h1 align="center"> CMS Tracker Flat Sheets Database </h1>
+<h1 align="center"> CMS TFPx Deetabase </h1>
 
 <?php
   session_start();
@@ -33,7 +33,7 @@
     $cleardb_password = $json_data["Password"];
     $cleardb_db = $json_data["Database"];
     $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-    
+
     $sqlQuery = "SELECT firstname, lastname, affiliation, privilege, email FROM users";
     $queryResult = mysqli_query($connection, $sqlQuery);
     while ($map_output = mysqli_fetch_assoc($queryResult))
