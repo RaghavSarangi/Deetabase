@@ -27,7 +27,7 @@ CREATE TABLE Dees
   periphery_serial_num VARCHAR(50),
   manufacture_datetime DATETIME,
   modules_included TINYTEXT,
-  x-ray_evaluation TEXT 
+  xray_evaluation TEXT 
 );
 
 CREATE TABLE sheets

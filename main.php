@@ -1,11 +1,11 @@
 <html>
 <head>
-  <title>CMS Tracker Flat Sheets Database</title>
+  <title>CMS TFPx Deetabase</title>
   <link rel="StyleSheet" type="text/css" href="theme.css"/>
 </head>
 <body>
 
-<h1 align="center"> CMS Tracker Flat Sheets Database </h1>
+<h1 align="center">CMS TFPx Deetabase</h1>
 
 <?php
   session_start();
@@ -18,7 +18,7 @@
     echo "<br/> \n";
     echo "Your options today are: <br/> \n";
     echo "<ul> \n";
-    if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator") echo "<li><a href='addpart.php'> <b>Add</b> flat sheets to the database </a></li> \n";
+    if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator") echo "<li><a href='add_dee.php'> <b>Add</b> Dees to the database </a></li> \n";
     echo "<li><a href='searchpart.php'> <b>Search</b> for and <b>change geographical location</b> of sheets in the database </a></li> \n";
     echo "<li><a href='users.php'> View <b>users</b> of the database </a></li> \n";
     echo "<li><a href='logout.php'> <b>Logout</b> </a></li> \n";
