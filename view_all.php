@@ -37,7 +37,8 @@
     $cleardb_db = $json_data["Database"];
     $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
-    $sqlQuery = "SELECT id, operators, manufacture_datetime, carbon_foam_serial_num, xray_evaluation FROM dees";
+    $sqlQuery = "SELECT id, operators, manufacture_datetime, carbon_fiber_top_serial_num, carbon_fiber_bottom_serial_num, 
+    carbon_foam_serial_num, periphery_serial_num, modules_included, xray_evaluation FROM dees";
     $queryResult = mysqli_query($connection, $sqlQuery);
     while ($map_output = mysqli_fetch_assoc($queryResult))
     {
@@ -46,7 +47,11 @@
       echo " <td> ".$map_output["id"]." </td> \n";
       echo " <td> ".$map_output["operators"]." </td> \n";
       echo " <td> ".$map_output["manufacture_datetime"]." </td> \n";
+      echo " <td> ".$map_output["carbon_fiber_top_serial_num"]." </td> \n";
+      echo " <td> ".$map_output["carbon_fiber_bottom_serial_num"]." </td> \n";
       echo " <td> ".$map_output["carbon_foam_serial_num"]." </td> \n";
+      echo " <td> ".$map_output["periphery_serial_num"]." </td> \n";
+      echo " <td> ".$map_output["modules_included"]." </td> \n";
       echo " <td> ".$map_output["xray_evaluation"]." </td> \n";
       echo "</tr> \n";
     }
