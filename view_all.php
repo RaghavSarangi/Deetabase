@@ -25,7 +25,11 @@
     echo "  <th> ID </th> \n";
     echo "  <th> Operators </th> \n";
     echo "  <th> Manufacturing Datetime </th> \n";
-    echo "  <th> Carbon Foam Serial Number </th> \n";
+    echo "  <th> Carbon Fiber Top Serial # </th> \n";
+    echo "  <th> Carbon Fiber Bottom Serial # </th> \n";
+    echo "  <th> Carbon Foam Serial # </th> \n";
+    echo "  <th> Periphery Serial # </th> \n";
+    echo "  <th> Modules Included </th> \n";
     echo "  <th> X-Ray Evaluation </th> \n";
     echo " </tr> \n";
 
