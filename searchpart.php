@@ -32,13 +32,20 @@
     echo " AND <b>Current Location</b>: \n";
     echo " <select name='location'> \n";
     echo "  <option value='Any'>Any</option> \n";
-    include("dbconnect.php");
-    $connection = openConnection();
+
+    $json = file_get_contents('./databaseURL.json');
+    $json_data = json_decode($json,true);
+    $cleardb_server = $json_data["Host"];
+    $cleardb_username = $json_data["Username"];
+    $cleardb_password = $json_data["Password"];
+    $cleardb_db = $json_data["Database"];
+    $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
     $sqlQuery = "SELECT affiliation FROM affiliations";
     $queryResult = mysqli_query($connection, $sqlQuery);
     while ($map_output = mysqli_fetch_assoc($queryResult))
       echo "  <option value='".$map_output["affiliation"]."'>".$map_output["affiliation"]."</option> \n";
     mysqli_close($connection);
+
     echo " </select> <br/><br/> \n";
     echo " AND <b>Thickness Mean Range</b>: <input type='text' name='thicknessMean_lo' value='0'/> to <input type='text' name='thicknessMean_hi'  value='1000'/> μm <br/><br/> \n";
     echo " AND <b>Thickness Standard Deviation Range</b>: <input type='text' name='thicknessStdDev_lo' value='0'/> to <input type='text' name='thicknessStdDev_hi' value='1000'/> μm <br/><br/> \n";
@@ -99,7 +106,14 @@
     echo "  <th> Location Modified on </th> \n";
     echo " </tr> \n";
 
-    $connection = openConnection();
+    $json = file_get_contents('./databaseURL.json');
+    $json_data = json_decode($json,true);
+    $cleardb_server = $json_data["Host"];
+    $cleardb_username = $json_data["Username"];
+    $cleardb_password = $json_data["Password"];
+    $cleardb_db = $json_data["Database"];
+    $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    
     $sqlQuery = "SELECT * FROM sheets WHERE sheetstring LIKE '".$searchstring."' AND
                                             location LIKE '".$searchLocation."' AND
                                             thickness_mean >= '".$thicknessMean_lo."' AND
