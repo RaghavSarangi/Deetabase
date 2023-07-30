@@ -22,7 +22,7 @@
       echo " <h3 align='center'> This form allows you to add details of any produced Dees. </h3> \n";
       echo "<form action='add_dee.php' method='post' enctype='multipart/form-data'> \n";
       echo " <b>Operators</b><br/>        <textarea name='operators' rows='1' cols='60'></textarea> <br/><br/> \n ";
-      echo " <b>Date & Time of Manufacture</b><br/> <input type='datetime-local' id='manufacture_datetime' name='manufacture_datetime'>";
+      echo " <b>Date & Time of Manufacture</b><br/> <input type='datetime-local' name='manufacture_datetime'>";
       echo "<br/> \n";
       echo "<br/> \n";
       echo "<fieldset>";
@@ -69,7 +69,7 @@
     $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
                 $userId = $_SESSION["userId"];
-                $dateTime = date("Y-m-d H:i:s");
+                // $dateTime = date("Y-m-d H:i:s");
                 $sqlQuery = "INSERT INTO dees (operators, carbon_fiber_top_serial_num, carbon_fiber_bottom_serial_num, 
                 carbon_foam_serial_num, periphery_serial_num, manufacture_datetime, modules_included, xray_evaluation)
                              VALUES ('".$operators."',

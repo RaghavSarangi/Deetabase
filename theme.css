@@ -1,6 +1,6 @@
 /*
-CSS composed by Souvik Das <souvik1982@gmail.com>
-February 3, 2021
+CSS composed by Souvik Das <souvik1982@gmail.com> with edits from Raghav Sarangi <rs977@cornell.edu>
+July 29, 2023
 */
 
 body
@@ -46,4 +46,28 @@ td, th
 tr:nth-child(even)
 {
   background-color: #dddddd;
+}
+
+.column {
+float: left;
+width: 50%;
+}
+
+/* Set width length for the left, right and middle columns */
+.left {
+width: 55%;
+}
+
+.middle {
+width: 0%;
+}
+
+.right {
+width: 45%;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
 }
