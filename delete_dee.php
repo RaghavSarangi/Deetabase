@@ -21,7 +21,7 @@ else
     echo "Dee successfully deleted!";
 } 
 
-
+mysqli_close($connection);
 ?>
 
 <br/><br/>
