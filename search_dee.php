@@ -137,7 +137,7 @@
     }
     $queryResult = mysqli_query($connection, $sqlQuery);
 
-    if (mysqli_num_rows($queryResult) == 0) {echo "<center><h2> No results found! </h2></center> \n";}
+    if (mysqli_num_rows($queryResult) == 0) {echo "<h2 style='text-align:center'> No results found! </h2> \n";}
     else {
 
     // echo "<br/> \n";
@@ -171,22 +171,6 @@
     $modules_included = $map_output["modules_included"];
     $xray_evaluation = $map_output["xray_evaluation"];
 
-    
-    // echo " <td> ".$id." </td> \n";
-    // echo " <td> ".$operators." </td> \n";
-    // echo " <td> ".$datetime." </td> \n";
-    // echo " <td> ".$carbon_fiber_top_serial_num." </td> \n";
-    // echo " <td> ".$carbon_fiber_bottom_serial_num." </td> \n";
-    // echo " <td> ".$carbon_foam_serial_num." </td> \n";
-    // echo " <td> ".$periphery_serial_num." </td> \n";
-    // echo " <td> ".$modules_included." </td> \n";
-    // echo " <td> ".$xray_evaluation." </td> \n";
-    // echo "</tr> \n";
-
-
-
-    // The sheet can be deleted if the privilege is Administrator
-
     echo "<tr id=$id> \n";
     echo " <td> ".$id." </td> \n";
     echo " <td> ".$operators." </td> \n";
@@ -198,47 +182,17 @@
     echo " <td> ".$modules_included." </td> \n";
     echo " <td> ".$xray_evaluation." </td> \n";
     echo " <td > \n";
+
+    // The sheet can be deleted if the privilege is Administrator
     if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
     {
-      // echo "<form method='post' action='search_dee.php'>";
-      // echo "<button type='button' id='delete_".$id."' name='delete_".$id."' onclick=deleteDee($id); >Delete</button> \n";
-      // echo "</form>";
-      echo "<button type='button' class='btn btn-warning'>Delete</button>";
-
-      // if (isset($_POST['delete_'.$id])) {
-      //  $sql_Delete_Query = "Delete from dees where id=$id";
-      //  $deleteResult = mysqli_query($connection, $sql_Delete_Query);
-      // }
+      echo '<form method="post" action="delete_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to delete this Dee?\');">';
+      echo "<input type='submit' name='id' value='Delete'></input>";
+      echo "</form>";
     }
     echo " </td > \n";
     echo "</tr> \n";
     
-
-
-    //   // The location can be changed if the privilege is Editor or Administrator
-    //   if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
-    //   {
-    //     echo "<button type='button' id='edit_".$sheetstring."' onclick=showMovingElements('".$sheetstring."')>Change Location</button> \n";
-    //     echo "<form action='move.php' method='post' enctype='multipart/form-data'> \n";
-    //     echo "  <select id='dropDown_".$sheetstring."' style='display:none' name='newLocation'> \n";
-    //     echo "  <option value = 'Purdue'>Purdue</option";
-    //     $sqlQuery_affiliations = "SELECT affiliation FROM affiliations";
-    //     $queryResult_affiliations = mysqli_query($connection, $sqlQuery_affiliations);
-    //     while ($map_affiliations = mysqli_fetch_assoc($queryResult_affiliations))
-    //       echo "  <option value='".$map_affiliations["affiliation"]."'>".$map_affiliations["affiliation"]."</option> \n";
-    //     echo "  </select> \n";
-    //     echo "  <input type='hidden' name='searchstring' value='".$searchstring."'/>";
-    //     echo "  <input type='hidden' name='searchLocation' value='".$searchLocation."'/>";
-    //     echo "  <input type='hidden' name='thicknessMean_lo' value='".$thicknessMean_lo."'/>";
-    //     echo "  <input type='hidden' name='thicknessMean_hi' value='".$thicknessMean_hi."'/>";
-    //     echo "  <input type='hidden' name='thicknessStdDev_lo' value='".$thicknessStdDev_lo."'/>";
-    //     echo "  <input type='hidden' name='thicknessStdDev_hi' value='".$thicknessStdDev_hi."'/>";
-    //     echo "  <input type='hidden' name='sheetstring' value='".$sheetstring."'/>";
-    //     echo "  <input id='submit_".$sheetstring."' style='display:none' type='submit' value='Submit'/> \n";
-    //     echo "</form> \n";
-    //     echo "<button type='button' id='cancel_".$sheetstring."' style='display:none' onclick=hideMovingElements('".$sheetstring."')>Cancel</button> \n";
-    //   }
-    //   echo " </td> \n";
 
 
     }
