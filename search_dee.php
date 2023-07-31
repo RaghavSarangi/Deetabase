@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<script src="showHideElements.js"></script>
+<script src="JSFunctions.js"></script>
 
 <h1 align="center"> CMS TFPx Deetabase </h1>
 
@@ -112,23 +112,6 @@
   if ($goodArguments)
 
   {
-    
-    echo "<br/> \n";
-    echo "<p> \n";
-    echo "<h2> Dees Produced </h2> \n";
-    echo "<table> \n";
-    echo " <tr> \n";
-    echo "  <th> ID </th> \n";
-    echo "  <th> Operators </th> \n";
-    echo "  <th> Manufacturing Datetime </th> \n";
-    echo "  <th> Carbon Fiber Top Serial # </th> \n";
-    echo "  <th> Carbon Fiber Bottom Serial # </th> \n";
-    echo "  <th> Carbon Foam Serial # </th> \n";
-    echo "  <th> Periphery Serial # </th> \n";
-    echo "  <th> Modules Included </th> \n";
-    echo "  <th> X-Ray Evaluation </th> \n";
-    echo " </tr> \n";
-
     $json = file_get_contents('./databaseURL.json');
     $json_data = json_decode($json,true);
     $cleardb_server = $json_data["Host"];
@@ -154,6 +137,24 @@
     }
     $queryResult = mysqli_query($connection, $sqlQuery);
 
+    if (mysqli_num_rows($queryResult) == 0) {echo "<center><h2> No results found! </h2></center> \n";}
+    else {
+
+    // echo "<br/> \n";
+    echo "<p> \n";
+    echo "<h2> Dees Produced </h2> \n";
+    echo "<table> \n";
+    echo " <tr> \n";
+    echo "  <th> ID </th> \n";
+    echo "  <th> Operators </th> \n";
+    echo "  <th> Manufacturing Datetime </th> \n";
+    echo "  <th> Carbon Fiber Top Serial # </th> \n";
+    echo "  <th> Carbon Fiber Bottom Serial # </th> \n";
+    echo "  <th> Carbon Foam Serial # </th> \n";
+    echo "  <th> Periphery Serial # </th> \n";
+    echo "  <th> Modules Included </th> \n";
+    echo "  <th> X-Ray Evaluation </th> \n";
+    echo " </tr> \n";
     $itemNumber = 0;
     while ($map_output = mysqli_fetch_assoc($queryResult))
 {
@@ -170,7 +171,23 @@
     $modules_included = $map_output["modules_included"];
     $xray_evaluation = $map_output["xray_evaluation"];
 
-    echo "<tr> \n";
+    
+    // echo " <td> ".$id." </td> \n";
+    // echo " <td> ".$operators." </td> \n";
+    // echo " <td> ".$datetime." </td> \n";
+    // echo " <td> ".$carbon_fiber_top_serial_num." </td> \n";
+    // echo " <td> ".$carbon_fiber_bottom_serial_num." </td> \n";
+    // echo " <td> ".$carbon_foam_serial_num." </td> \n";
+    // echo " <td> ".$periphery_serial_num." </td> \n";
+    // echo " <td> ".$modules_included." </td> \n";
+    // echo " <td> ".$xray_evaluation." </td> \n";
+    // echo "</tr> \n";
+
+
+
+    // The sheet can be deleted if the privilege is Administrator
+
+    echo "<tr id=$id> \n";
     echo " <td> ".$id." </td> \n";
     echo " <td> ".$operators." </td> \n";
     echo " <td> ".$datetime." </td> \n";
@@ -180,45 +197,24 @@
     echo " <td> ".$periphery_serial_num." </td> \n";
     echo " <td> ".$modules_included." </td> \n";
     echo " <td> ".$xray_evaluation." </td> \n";
+    echo " <td > \n";
+    if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
+    {
+      // echo "<form method='post' action='search_dee.php'>";
+      // echo "<button type='button' id='delete_".$id."' name='delete_".$id."' onclick=deleteDee($id); >Delete</button> \n";
+      // echo "</form>";
+      echo "<button type='button' class='btn btn-warning'>Delete</button>";
+
+      // if (isset($_POST['delete_'.$id])) {
+      //  $sql_Delete_Query = "Delete from dees where id=$id";
+      //  $deleteResult = mysqli_query($connection, $sql_Delete_Query);
+      // }
+    }
+    echo " </td > \n";
     echo "</tr> \n";
-
-
-      // $userId = $map_output["userId"];
-    //   $sqlQuery_user = "SELECT firstname, lastname, affiliation FROM users WHERE id=".$userId;
-    //   $map_output_user = mysqli_fetch_assoc(mysqli_query($connection, $sqlQuery_user));
-    //   $userInformation = $map_output_user["firstname"]." ".$map_output_user["lastname"].", ".$map_output_user["affiliation"].", at ".$created_at;
-
-    //   $moverId = $map_output["moverId"];
-    //   $sqlQuery_mover = "SELECT firstname, lastname, affiliation FROM users WHERE id=".$moverId;
-    //   $result_mover = mysqli_query($connection, $sqlQuery_mover);
-    //   $moverInformation = "";
-    //   if ($result_mover)
-    //   {
-    //     $map_output_mover = mysqli_fetch_assoc($result_mover);
-    //     $moverInformation = $map_output_mover["firstname"]." ".$map_output_mover["lastname"].", ".$map_output_mover["affiliation"];
-    //   }
-
-    //   echo "<tr> \n";
-    //   echo " <td> ".$itemNumber." </td> \n";
-    //   echo " <td> \n";
-    //   echo $sheetstring." \n";
-
-
-    //   // The sheet can be deleted if the privilege is Administrator
-    //   if ($_SESSION["privilege"] == "Administrator")
-    //   {
-    //     echo "<button type='button' id='delete_".$sheetstring."' onclick=showMovingElements('".$sheetstring."')>Delete</button> \n";
-    //   }
-    //   echo " </td> \n";
-    //   echo " <td> ".$userInformation." </td> \n";
-    //   echo " <td> <a href='".$file.".pdf' target='_blank'>".$sheetstring.".PDF</a> </td> \n";
-    //   echo " <td> <a href='".$file.".csv' target='_blank'>".$sheetstring.".CSV</a> </td> \n";
-    //   echo " <td> ".$thickness_mean." </td> \n";
-    //   echo " <td> ".$thickness_stddev." </td> \n";
-    //   echo " <td > \n";
-    //   echo $location." \n";
-
     
+
+
     //   // The location can be changed if the privilege is Editor or Administrator
     //   if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
     //   {
@@ -244,9 +240,7 @@
     //   }
     //   echo " </td> \n";
 
-    //   echo " <td> ".$moverInformation." </td> \n";
-    //   echo " <td> ".$movingTime." </td> \n";
-    //   echo "</tr> \n";
+
     }
 
     mysqli_close($connection);
@@ -254,6 +248,7 @@
     echo "</table> \n";
 
   }
+}
 
 ?>
 

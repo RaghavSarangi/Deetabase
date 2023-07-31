@@ -13,3 +13,8 @@ function hideMovingElements(id)
   document.getElementById("submit_" + id).style.display   = 'none';
   document.getElementById("cancel_" + id).style.display   = 'none';
 }
+
+function deleteDee(id)
+{
+  document.getElementById(id).addEventListener('click', function(){document.getElementById(id).remove();});
+}

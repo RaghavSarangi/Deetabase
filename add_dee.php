@@ -69,7 +69,6 @@
     $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
                 $userId = $_SESSION["userId"];
-                // $dateTime = date("Y-m-d H:i:s");
                 $sqlQuery = "INSERT INTO dees (operators, carbon_fiber_top_serial_num, carbon_fiber_bottom_serial_num, 
                 carbon_foam_serial_num, periphery_serial_num, manufacture_datetime, modules_included, xray_evaluation)
                              VALUES ('".$operators."',

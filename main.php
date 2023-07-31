@@ -18,10 +18,19 @@
     echo "<br/> \n";
     echo "Your options today are: <br/> \n";
     echo "<ul> \n";
-    if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator") echo "<li><a href='add_dee.php'> <b>Add</b> Dees to the database </a></li> \n";
+    if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator") {
+      echo "<li><a href='add_dee.php'> <b>Add</b> Dees to the database </a></li> \n";
+      echo "<br/> \n";
+    }
     echo "<li><a href='search_dee.php'> Filter-search <b>Dees</b> of the database </a></li> \n";
-    echo "<li><a href='view_all.php'> <b>See all Dees</b>  recorded in the database </a></li> \n";
+    echo "<br/> \n";
+    echo "<li><a href='view_all.php'> <b>See all Dees</b> stored in the database </a></li> \n";
+    echo "<br/> \n";
+
+    if ($_SESSION["privilege"] == "Administrator") {
     echo "<li><a href='users.php'> View <b>users</b> of the database </a></li> \n";
+    echo "<br/> \n";
+  }
     echo "<li><a href='logout.php'> <b>Logout</b> </a></li> \n";
     echo "</ul> \n";
     echo "\n \n";
