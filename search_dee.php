@@ -76,6 +76,7 @@
     echo "</div>";
 
   }
+  else header("location: index.php");
 ?>
 
 <?php

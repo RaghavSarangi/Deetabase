@@ -9,7 +9,7 @@
 
 <?php
   session_start();
-  if ($_SESSION["username"] != "")
+  if ($_SESSION["username"] != "") 
   {
     echo "Current User: ".$_SESSION["firstname"]." ".$_SESSION["lastname"]."<br/> \n";
     echo "Affiliation: ".$_SESSION["affiliation"]."<br/> \n";
@@ -45,6 +45,7 @@
     echo "</p> \n";
 
   }
+  else header("location: index.php");
 ?>
 
 <?php
