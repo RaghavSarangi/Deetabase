@@ -187,8 +187,9 @@
     // The sheet can be deleted if the privilege is Administrator
     if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
     {
-      echo '<form method="post" action="delete_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to delete this Dee?\');">';
-      echo "<input type='submit' name='id' value='Delete'></input>";
+      echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to change this Dee?\');">';
+      echo "<input type='submit' name='id' value='Edit'></input>";
+      if ($_SESSION["privilege"] == "Administrator") echo "<input type='submit' name='id' value='Delete'></input>";
       echo "</form>";
     }
     echo " </td > \n";
