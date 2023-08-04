@@ -91,11 +91,12 @@ else {
 
 ?>
 
-<p align="right">
+<!-- <p align="right">
 Author: Souvik Das <br/>
 Purdue University, 2021 <br/>
 souvik@purdue.edu
-</p>
+</p> -->
+<div class="footer"><i>Made by Raghav Sarangi (rs977@cornell.edu) with support from Souvik Das (souvik@purdue.edu)</i></div>
 
 </body>
 </html>

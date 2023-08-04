@@ -5,8 +5,6 @@
 </head>
 <body>
 
-<script src="JSFunctions.js"></script>
-
 <h1 align="center"> CMS TFPx Deetabase </h1>
 
 <?php
@@ -148,13 +146,14 @@
     echo " <tr> \n";
     echo "  <th> ID </th> \n";
     echo "  <th> Operators </th> \n";
-    echo "  <th> Manufacturing Datetime </th> \n";
-    echo "  <th> Carbon Fiber Top Serial # </th> \n";
-    echo "  <th> Carbon Fiber Bottom Serial # </th> \n";
-    echo "  <th> Carbon Foam Serial # </th> \n";
-    echo "  <th> Periphery Serial # </th> \n";
-    echo "  <th> Modules Included </th> \n";
-    echo "  <th> X-Ray Evaluation </th> \n";
+    echo "  <th> Manufactured On </th> \n";
+    echo "  <th> Carbon Fiber </th> \n";
+    echo "  <th> Carbon Fiber Bottom </th> \n";
+    echo "  <th> Carbon Foam </th> \n";
+    echo "  <th> Periphery</th> \n";
+    // echo "  <th> Modules Included </th> \n";
+    // echo "  <th> X-Ray Evaluation </th> \n";
+    echo "  <th> Actions </th> \n";
     echo " </tr> \n";
     $itemNumber = 0;
     while ($map_output = mysqli_fetch_assoc($queryResult))
@@ -180,16 +179,17 @@
     echo " <td> ".$carbon_fiber_bottom_serial_num." </td> \n";
     echo " <td> ".$carbon_foam_serial_num." </td> \n";
     echo " <td> ".$periphery_serial_num." </td> \n";
-    echo " <td> ".$modules_included." </td> \n";
-    echo " <td> ".$xray_evaluation." </td> \n";
+    // echo " <td> ".$modules_included." </td> \n";
+    // echo " <td> ".$xray_evaluation." </td> \n";
     echo " <td > \n";
 
-    // The sheet can be deleted if the privilege is Administrator
+    echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to act on Dee #'.$id.'?\');">';
+    echo "<input type='submit' name='action' value='View'></input>";
+    // The sheet can be edited if the privilege is Editor or Administrator and deleted if the privilege is Administrator
     if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
     {
-      echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to change this Dee?\');">';
-      echo "<input type='submit' name='id' value='Edit'></input>";
-      if ($_SESSION["privilege"] == "Administrator") echo "<input type='submit' name='id' value='Delete'></input>";
+      echo "<input type='submit' name='action' value='Edit'></input>";
+      if ($_SESSION["privilege"] == "Administrator") echo "<input type='submit' name='action' value='Delete'></input>";
       echo "</form>";
     }
     echo " </td > \n";
@@ -212,11 +212,11 @@
 <a href="main.php">Back</a>
 <br/>
 
-<p align="right">
+<!-- <p align="right">
 Author: Raghav Sarangi <br/>
 Cornell University, 2023 <br/>
 rs977@cornell.edu
-</p>
+</p> -->
 
 </body>
 </html>

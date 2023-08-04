@@ -37,11 +37,16 @@
   }
 ?>
 
-<p align="right">
-Author: Souvik Das <br/>
-Purdue University, 2021 <br/>
-souvik@purdue.edu
-</p>
+<!-- <p align="right">
+<i> Author: Raghav Sarangi </i><br/>
+Cornell University, 2023 <br/>
+rs977@cornell.edu <br/>
+With support from: <br/>
+Souvik Das @ Purdue University <br/>
+Jose Monroy @ Cornell University <br/>
+</p> -->
+
+<div class="footer"><i>Made by Raghav Sarangi (rs977@cornell.edu) with support from Souvik Das (souvik@purdue.edu)</i></div>
 
 </body>
 </html>
