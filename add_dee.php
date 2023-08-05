@@ -15,7 +15,7 @@
     echo "Affiliation: ".$_SESSION["affiliation"]."<br/> \n";
     echo "Privilege: ".$_SESSION["privilege"]."<br/> \n";
 
-    echo "<br/> \n";
+    // echo "<br/> \n";
     echo "<p> \n";
     if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
     {
@@ -33,7 +33,7 @@
       echo "</div>";
 
       echo "<fieldset>";
-      echo "<legend>Components</legend>";
+      echo "<legend><i>Components</i></legend>";
 
       echo '<div class="row">';
 

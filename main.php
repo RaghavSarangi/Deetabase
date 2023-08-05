@@ -16,7 +16,8 @@
     echo "Privilege: ".$_SESSION["privilege"]."<br/> \n";
 
     echo "<br/> \n";
-    echo "Your options today are: <br/> \n";
+    echo "<br/> \n";
+    echo "<i>Your options today are: </i><br/> \n";
     echo "<ul> \n";
     if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator") {
       echo "<li><a href='add_dee.php'> <b>Add</b> Dees to the database </a></li> \n";

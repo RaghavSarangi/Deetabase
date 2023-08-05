@@ -28,19 +28,6 @@ $Query="select * from dees where id=$id";
     }
 else
 {
-    echo "<table> \n";
-    echo " <tr> \n";
-    echo "  <th> ID </th> \n";
-    echo "  <th> Operators </th> \n";
-    echo "  <th> Manufactured On </th> \n";
-    echo "  <th> Carbon Fiber Top</th> \n";
-    echo "  <th> Carbon Fiber Bottom</th> \n";
-    echo "  <th> Carbon Foam</th> \n";
-    echo "  <th> Periphery</th> \n";
-    echo "  <th> Modules Included </th> \n";
-    echo "  <th> X-Ray Evaluation </th> \n";
-    echo "  <th> CMM Evaluation </th> \n";
-    echo " </tr> \n";
     $map_output = mysqli_fetch_assoc($result);
 
     $id = $map_output['id']; 
@@ -54,19 +41,41 @@ else
     $xray_evaluation = $map_output["xray_evaluation"];
     $cmm_evaluation = $map_output["cmm_evaluation"];
 
-    echo "<tr id=$id> \n";
-    echo " <td> ".$id." </td> \n";
-    echo " <td> ".$operators." </td> \n";
-    echo " <td> ".$datetime." </td> \n";
-    echo " <td> ".$carbon_fiber_top_serial_num." </td> \n";
-    echo " <td> ".$carbon_fiber_bottom_serial_num." </td> \n";
-    echo " <td> ".$carbon_foam_serial_num." </td> \n";
-    echo " <td> ".$periphery_serial_num." </td> \n";
-    echo " <td> ".$modules_included." </td> \n";
-    echo " <td> ".$xray_evaluation." </td> \n";
-    echo " <td> ".$cmm_evaluation." </td> \n";
-    echo " <td > \n";
-    echo "</table> \n";
+
+    echo " <h1 align='center'> Dee #$id </h1> \n";
+    echo '<div class="row">';
+    echo '<div class="column left">';
+    echo " <b>Operators</b><br/>        <textarea readonly name='operators' rows='1' cols='60'>$operators</textarea> <br/><br/> \n ";
+    echo "</div>";
+    echo '<div class="column right">';
+    echo " <b>Date & Time of Manufacture</b><br/> <input readonly type='datetime-local' name='manufacture_datetime' value='$datetime'>";
+    echo "</div>";
+    echo "</div>";
+    echo "<fieldset>";
+    echo "<legend><i>Components</i></legend>";
+    echo '<div class="row">';
+    echo '<div class="column left">';
+    echo " <b>Carbon Fiber Top Serial #</b><br/>        <input readonly type='text' name='carbon_fiber_top_serial_num' value='$carbon_fiber_top_serial_num'> <br/><br/> \n";
+    echo " <b>Carbon Fiber Bottom Serial #</b><br/>        <input readonly type='text' name='carbon_fiber_bottom_serial_num' value='$carbon_fiber_bottom_serial_num'> <br/><br/> \n";
+    echo " <b>Carbon Foam Serial #</b><br/>        <input readonly type='text' name='carbon_foam_serial_num' value='$carbon_foam_serial_num'> <br/><br/> \n";
+    echo " <b>Periphery Serial #</b><br/>        <input readonly type='text' name='periphery_serial_num' value='$periphery_serial_num'> <br/><br/> \n";
+    echo "</div>";
+    echo '<div class="column right">';
+    echo " <b>IDs of Modules Included</b><br/>        <textarea readonly name='modules_included' rows='4' cols='60'></textarea> <br/><br/> \n"; 
+    echo "</div>";
+    echo "</div>";
+    echo "</fieldset>";
+    echo "<br/> \n";
+    echo '<div class="row">';
+    echo '<div class="column left">';
+    echo "<b>X-Ray Evaluation</b><br/> <textarea readonly name='xray_evaluation' rows='5' cols='60'>$xray_evaluation</textarea>";
+    echo "</div>";
+
+    echo '<div class="column right">';
+    echo "<b>CMM Evaluation</b><br/> <textarea readonly name='cmm_evaluation' rows='5' cols='60'>$cmm_evaluation</textarea>";
+    echo "</div>";
+
+    echo "</div>";
 } 
 
 ?>
