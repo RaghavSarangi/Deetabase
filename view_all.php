@@ -24,13 +24,14 @@
     echo " <tr> \n";
     echo "  <th> ID </th> \n";
     echo "  <th> Operators </th> \n";
-    echo "  <th> Manufacturing Datetime </th> \n";
-    echo "  <th> Carbon Fiber Top Serial # </th> \n";
-    echo "  <th> Carbon Fiber Bottom Serial # </th> \n";
-    echo "  <th> Carbon Foam Serial # </th> \n";
-    echo "  <th> Periphery Serial # </th> \n";
+    echo "  <th> Manufactured On </th> \n";
+    echo "  <th> Carbon Fiber Top </th> \n";
+    echo "  <th> Carbon Fiber Bottom </th> \n";
+    echo "  <th> Carbon Foam </th> \n";
+    echo "  <th> Periphery </th> \n";
     echo "  <th> Modules Included </th> \n";
     echo "  <th> X-Ray Evaluation </th> \n";
+    echo "  <th> CMM Evaluation </th> \n";
     echo " </tr> \n";
 
     $json = file_get_contents('./databaseURL.json');
@@ -42,7 +43,7 @@
     $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
     $sqlQuery = "SELECT id, operators, manufacture_datetime, carbon_fiber_top_serial_num, carbon_fiber_bottom_serial_num, 
-    carbon_foam_serial_num, periphery_serial_num, modules_included, xray_evaluation FROM dees";
+    carbon_foam_serial_num, periphery_serial_num, modules_included, xray_evaluation, cmm_evaluation FROM dees";
     $queryResult = mysqli_query($connection, $sqlQuery);
     while ($map_output = mysqli_fetch_assoc($queryResult))
     {
@@ -57,6 +58,7 @@
       echo " <td> ".$map_output["periphery_serial_num"]." </td> \n";
       echo " <td> ".$map_output["modules_included"]." </td> \n";
       echo " <td> ".$map_output["xray_evaluation"]." </td> \n";
+      echo " <td> ".$map_output["cmm_evaluation"]." </td> \n";
       echo "</tr> \n";
     }
     mysqli_close($connection);
@@ -71,11 +73,7 @@
 <a href="main.php">Back</a>
 <br/>
 
-<p align="right">
-Author: Raghav Sarangi <br/>
-Cornell University, 2023 <br/>
-rs977@cornell.edu
-</p>
+<div class="footer"><i>Made by Raghav Sarangi (rs977@cornell.edu) with support from Souvik Das (souvik@purdue.edu)</i></div>
 
 </body>
 </html>

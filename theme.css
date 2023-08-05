@@ -72,9 +72,9 @@ display: table;
 clear: both;
 }
 
-   .footer{ 
-       position: fixed;     
-       text-align: center;    
-       bottom: 5px; 
-       width: 100%;
-   }  
+  .footer{ 
+      position: fixed;     
+      text-align: center;    
+      bottom: 5px; 
+      width: 100%;
+  }  

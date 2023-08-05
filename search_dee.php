@@ -55,6 +55,7 @@
     echo " AND <b>Carbon Fiber Serial Num (Top or Bottom)</b>: <input type='text' name='carbon_fiber_search' value='%'/> <br/> \n";
     echo " AND <b>Carbon Foam Serial Num</b>: <input type='text' name='carbon_foam_search' value='%'/> <br/> \n";
     echo " AND <b>Periphery Serial Num</b>: <input type='text' name='periphery_search' value='%'/> <br/> \n";
+    echo "<br/> \n";
     echo " <input type='submit' value='Search'> \n";
     echo "</form> \n";
     echo "</p> \n"; 
@@ -147,7 +148,7 @@
     echo "  <th> ID </th> \n";
     echo "  <th> Operators </th> \n";
     echo "  <th> Manufactured On </th> \n";
-    echo "  <th> Carbon Fiber </th> \n";
+    echo "  <th> Carbon Fiber Top </th> \n";
     echo "  <th> Carbon Fiber Bottom </th> \n";
     echo "  <th> Carbon Foam </th> \n";
     echo "  <th> Periphery</th> \n";
@@ -183,18 +184,31 @@
     // echo " <td> ".$xray_evaluation." </td> \n";
     echo " <td > \n";
 
-    echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to act on Dee #'.$id.'?\');">';
+    echo '<form method="post" action="action_dee.php?id='.$id.'" >';
     echo "<input type='submit' name='action' value='View'></input>";
+    
     // The sheet can be edited if the privilege is Editor or Administrator and deleted if the privilege is Administrator
     if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
     {
-      echo "<input type='submit' name='action' value='Edit'></input>";
-      if ($_SESSION["privilege"] == "Administrator") echo "<input type='submit' name='action' value='Delete'></input>";
+      echo '<input type="submit" name="action" value="Edit" onclick="javascript:return confirm(\'Are you sure you want to edit Dee #'.$id.'?\');"></input>';
+      if ($_SESSION["privilege"] == "Administrator") echo '<input type="submit" name="action" value="Delete" onclick="javascript:return confirm(\'Are you sure you want to delete Dee #'.$id.'?\');"></input>';
       echo "</form>";
     }
     echo " </td > \n";
     echo "</tr> \n";
-    
+    //     echo '<form method="post" action="action_dee.php?id='.$id.'">';
+    // echo "<input type='submit' name='action' value='View'></input>";
+    // echo "</form>";
+    // // The sheet can be edited if the privilege is Editor or Administrator and deleted if the privilege is Administrator
+    // if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
+    // {
+    //   echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to edit Dee #'.$id.'?\');">';
+    //   echo "<input type='submit' name='action' value='Edit'></input>";
+    //   echo "</form>";
+    //   if ($_SESSION["privilege"] == "Administrator") {
+    //   echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to delete Dee #'.$id.'?\');">';
+    //   echo "<input type='submit' name='action' value='Delete'></input>";
+    //   echo "</form>";
 
 
     }
@@ -211,12 +225,6 @@
 <br/><br/>
 <a href="main.php">Back</a>
 <br/>
-
-<!-- <p align="right">
-Author: Raghav Sarangi <br/>
-Cornell University, 2023 <br/>
-rs977@cornell.edu
-</p> -->
 
 </body>
 </html>

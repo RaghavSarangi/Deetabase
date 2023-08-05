@@ -25,18 +25,15 @@ Don't have an account? <a href="signup.php">Sign up now.</a><br/>
 
 // Read the JSON file 
 $json = file_get_contents('./databaseURL.json');
-  
 // Decode the JSON file
 $json_data = json_decode($json,true);
-  
+
 // Display data
 // print_r($json_data);
-
 $cleardb_server = $json_data["Host"];
 $cleardb_username = $json_data["Username"];
 $cleardb_password = $json_data["Password"];
 $cleardb_db = $json_data["Database"];
-
 
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
@@ -91,11 +88,6 @@ else {
 
 ?>
 
-<!-- <p align="right">
-Author: Souvik Das <br/>
-Purdue University, 2021 <br/>
-souvik@purdue.edu
-</p> -->
 <div class="footer"><i>Made by Raghav Sarangi (rs977@cornell.edu) with support from Souvik Das (souvik@purdue.edu)</i></div>
 
 </body>

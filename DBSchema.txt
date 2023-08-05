@@ -27,19 +27,6 @@ CREATE TABLE Dees
   periphery_serial_num VARCHAR(50),
   manufacture_datetime DATETIME,
   modules_included TINYTEXT,
-  xray_evaluation TEXT 
-);
-
-CREATE TABLE sheets
-(
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  sheetstring VARCHAR(50) NOT NULL,
-  folder VARCHAR(100),
-  userId INT,
-  thickness_mean INT,
-  thickness_stddev INT,
-  created_at DATETIME,
-  location VARCHAR(50),
-  moverId INT,
-  movingTime DATETIME
+  xray_evaluation TEXT,
+  cmm_evaluation TEXT
 );
