@@ -31,19 +31,6 @@ if ($action == 'View') {
     }
     else
     {
-        // echo "<table> \n";
-        // echo " <tr> \n";
-        // echo "  <th> ID </th> \n";
-        // echo "  <th> Operators </th> \n";
-        // echo "  <th> Manufactured On </th> \n";
-        // echo "  <th> Carbon Fiber Top</th> \n";
-        // echo "  <th> Carbon Fiber Bottom</th> \n";
-        // echo "  <th> Carbon Foam</th> \n";
-        // echo "  <th> Periphery</th> \n";
-        // echo "  <th> Modules Included </th> \n";
-        // echo "  <th> X-Ray Evaluation </th> \n";
-        // echo "  <th> CMM Evaluation </th> \n";
-        // echo " </tr> \n";
         $map_output = mysqli_fetch_assoc($result);
 
         $id = $map_output['id']; 
@@ -56,20 +43,6 @@ if ($action == 'View') {
         $modules_included = $map_output["modules_included"];
         $xray_evaluation = $map_output["xray_evaluation"];
         $cmm_evaluation = $map_output["cmm_evaluation"];
-
-        // echo "<tr id=$id> \n";
-        // // echo " <td> ".$id." </td> \n";
-        // echo " <td> ".$operators." </td> \n";
-        // echo " <td> ".$datetime." </td> \n";
-        // echo " <td> ".$carbon_fiber_top_serial_num." </td> \n";
-        // echo " <td> ".$carbon_fiber_bottom_serial_num." </td> \n";
-        // echo " <td> ".$carbon_foam_serial_num." </td> \n";
-        // echo " <td> ".$periphery_serial_num." </td> \n";
-        // echo " <td> ".$modules_included." </td> \n";
-        // echo " <td> ".$xray_evaluation." </td> \n";
-        // echo " <td> ".$cmm_evaluation." </td> \n";
-        // echo " <td > \n";
-        // echo "</table> \n";
 
         echo " <h1 align='center'> Dee #$id </h1> \n";
         echo '<div class="row">';

@@ -7,7 +7,7 @@
 
 
 <?php
-$id = $_GET['id'];
+
 
 $json = file_get_contents('./databaseURL.json');
 $json_data = json_decode($json,true);

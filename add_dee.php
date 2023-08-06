@@ -8,6 +8,11 @@
 <h1 align="center"> CMS TFPx Deetabase </h1>
 
 <?php
+require '/Users/Raghav1/vendor/autoload.php'; 
+
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
   session_start();
   if ($_SESSION["username"] != "")
   {
@@ -112,6 +117,9 @@
                           '".$xray_evaluation."',
                           '".$cmm_evaluation."');";
     $output = mysqli_query($connection, $sqlQuery);
+    $id = $connection->insert_id;
+
+    echo "<br/> \n";
     if(!$output)
     {
         echo mysqli_error($connection);
@@ -121,6 +129,13 @@
     // printf("Affected rows (INSERT): %d\n", $connection->affected_rows);
     echo "<b>LOG</b>: Database entry created.<br/> \n";
     }
+    $qr_code = QrCode::create("https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_view.php?id=$id")
+                      ->setSize(200);
+    $writer = new PngWriter;
+    $result = $writer->write($qr_code);
+    $result->saveToFile("./QR_Codes/qr_code_dee_$id.png");
+    echo '<img src="./QR_Codes/qr_code_dee_'.$id.'.png" />';
+
             }
 
 ?>

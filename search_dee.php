@@ -50,8 +50,8 @@
     // echo " </select> <br/><br/> \n";
 
     echo "<b>Operators</b>: <input type='text' name='operator_search' value='%'/> <br/> \n";
-    echo " AND <b>Manufacturing Datetime Range</b>:  <input type='datetime-local' name='manufacture_datetime_search_start' value='2023-01-01T09:00'> 
-    to <input type='datetime-local' name='manufacture_datetime_search_end' value='2024-12-31T17:00'> <br/> \n";
+    echo " AND <b>Manufacturing Datetime Range</b>:  <input type='datetime-local' name='manufacture_datetime_search_start' value='1970-01-01T00:00'> 
+    to <input type='datetime-local' name='manufacture_datetime_search_end' value='2025-12-31T11:59'> <br/> \n";
     echo " AND <b>Carbon Fiber Serial Num (Top or Bottom)</b>: <input type='text' name='carbon_fiber_search' value='%'/> <br/> \n";
     echo " AND <b>Carbon Foam Serial Num</b>: <input type='text' name='carbon_foam_search' value='%'/> <br/> \n";
     echo " AND <b>Periphery Serial Num</b>: <input type='text' name='periphery_search' value='%'/> <br/> \n";
