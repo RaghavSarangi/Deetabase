@@ -131,9 +131,10 @@ use Endroid\QrCode\Writer\PngWriter;
     }
     $qr_code = QrCode::create("https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_view.php?id=$id")
                       ->setSize(200);
+    echo "Reached here";
     $writer = new PngWriter;
     $result = $writer->write($qr_code);
-    echo "Reached here";
+    
     $result->saveToFile("./QR_Codes/qr_code_dee_$id.png");
     echo '<img src="./QR_Codes/qr_code_dee_'.$id.'.png" />';
 
