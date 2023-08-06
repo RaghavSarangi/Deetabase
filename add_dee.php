@@ -129,9 +129,10 @@ use Endroid\QrCode\Writer\PngWriter;
     // printf("Affected rows (INSERT): %d\n", $connection->affected_rows);
     echo "<b>LOG</b>: Database entry created.<br/> \n";
     }
+    echo "Reached here";
     $qr_code = QrCode::create("https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_view.php?id=$id")
                       ->setSize(200);
-    echo "Reached here";
+    
     $writer = new PngWriter;
     $result = $writer->write($qr_code);
     
