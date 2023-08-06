@@ -8,7 +8,7 @@
 <h1 align="center"> CMS TFPx Deetabase </h1>
 
 <?php
-require 'vendor/autoload.php'; 
+// require 'vendor/autoload.php'; 
 
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
@@ -133,6 +133,7 @@ use Endroid\QrCode\Writer\PngWriter;
                       ->setSize(200);
     $writer = new PngWriter;
     $result = $writer->write($qr_code);
+    echo "Reached here";
     $result->saveToFile("./QR_Codes/qr_code_dee_$id.png");
     echo '<img src="./QR_Codes/qr_code_dee_'.$id.'.png" />';
 
