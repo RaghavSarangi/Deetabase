@@ -8,10 +8,6 @@
 <h1 align="center"> CMS TFPx Deetabase </h1>
 
 <?php
-// require 'vendor/autoload.php'; 
-
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Writer\PngWriter;
 
   session_start();
   if ($_SESSION["username"] != "")
@@ -84,6 +80,9 @@ use Endroid\QrCode\Writer\PngWriter;
 ?>
 
 <?php
+// require 'vendor/autoload.php';
+  use Endroid\QrCode\QrCode;
+  use Endroid\QrCode\Writer\PngWriter;
 
   if (isset($_POST["submit"]))
   {
@@ -129,15 +128,19 @@ use Endroid\QrCode\Writer\PngWriter;
     // printf("Affected rows (INSERT): %d\n", $connection->affected_rows);
     echo "<b>LOG</b>: Database entry created.<br/> \n";
     }
-    echo "Reached here";
-    $qr_code = QrCode::create("https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_view.php?id=$id")
-                      ->setSize(200);
+     
     
+    try {
+  $qr_code = QrCode::create("https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_view.php?id=$id")
+                      ->setSize(200);
     $writer = new PngWriter;
     $result = $writer->write($qr_code);
     
     $result->saveToFile("./QR_Codes/qr_code_dee_$id.png");
     echo '<img src="./QR_Codes/qr_code_dee_'.$id.'.png" />';
+          } catch(Exception $e) {echo $e->getMessage();}
+
+
 
             }
 
