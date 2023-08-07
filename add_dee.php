@@ -124,7 +124,7 @@
     }
     else {
     // printf("Affected rows (INSERT): %d\n", $connection->affected_rows);
-    echo "<b>LOG</b>: Database entry created.<br/> \n";
+    echo "<b>LOG</b>: Database entry created. ID <b>#$id</b> assigned.<br/> \n";
     }
     // $text =  "https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id";
     // $file = "./qr_code_dee_$id.png";
@@ -132,6 +132,7 @@
     // $frame_size = 5; 
     // QRcode::png($text, $file, $pixel_size, $frame_size);
     // echo "<center><img src='".$file."'></center>";
+
 
     echo '<center><img src="qrcode_generate.php?id='.$id.'"></center>';
   

@@ -48,7 +48,7 @@
     mysqli_close($connection);
 
     echo "</table> \n";
-  }
+  } else header("location: index.php");
 ?>
 
 <br/>

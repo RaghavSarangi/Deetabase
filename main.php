@@ -35,7 +35,7 @@
     echo "<li><a href='logout.php'> <b>Logout</b> </a></li> \n";
     echo "</ul> \n";
     echo "\n \n";
-  }
+  } else header("location: index.php");
 ?>
 
 
