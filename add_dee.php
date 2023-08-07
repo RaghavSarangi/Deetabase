@@ -80,9 +80,6 @@
 ?>
 
 <?php
-// require 'vendor/autoload.php';
-  // use Endroid\QrCode\QrCode;
-  // use Endroid\QrCode\Writer\PngWriter;
   include 'phpqrcode/qrlib.php';
 
   if (isset($_POST["submit"]))
@@ -137,16 +134,7 @@
     // echo "<center><img src='".$file."'></center>";
 
     echo '<center><img src="qrcode_generate.php?id='.$id.'"></center>';
-    
-
-    
-    // $qr_code = QrCode::create("https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id")
-    //                   ->setSize(200);
-    // $writer = new PngWriter;
-    // $result = $writer->write($qr_code);
-    
-    // $result->saveToFile("./QR_Codes/qr_code_dee_$id.png");
-    // echo '<img src="./QR_Codes/qr_code_dee_'.$id.'.png" />';
+  
 
             }
 

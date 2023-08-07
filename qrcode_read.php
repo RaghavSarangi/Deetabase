@@ -18,7 +18,7 @@ $cleardb_db = $json_data["Database"];
 $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 
-
+$id = $_GET['id'];
 $Query="select * from dees where id=$id";
     $result=mysqli_query($connection, $Query);
     if(!$result)
