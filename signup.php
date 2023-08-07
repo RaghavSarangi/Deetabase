@@ -20,9 +20,7 @@
   <b>Affiliation</b><br/>
     <select name="affiliation">
       <?php
-        // Connect to DB
         $json = file_get_contents('./databaseURL.json');
-        // Decode the JSON file
         $json_data = json_decode($json,true);
         $cleardb_server = $json_data["Host"];
         $cleardb_username = $json_data["Username"];
@@ -101,11 +99,7 @@ Already have an account? <a href="index.php"> Login here.</a>
   }
 ?>
 
-<p align="right">
-Author: Souvik Das <br/>
-Purdue University, 2021 <br/>
-souvik@purdue.edu
-</p>
+<div class="footer"><i>Made by Raghav Sarangi (rs977@cornell.edu) with support from Souvik Das (souvik@purdue.edu)</i></div>
 
 </body>
 </html>

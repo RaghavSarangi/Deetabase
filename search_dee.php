@@ -30,25 +30,6 @@
     echo '<div class="column left">';
     echo '<h3>Filter by Attributes: </h3>';
 
-    // echo " AND <b>Current Location</b>: \n";
-    // echo " <select name='location'> \n";
-    // echo "  <option value='Any'>Any</option> \n";
-
-    // $json = file_get_contents('./databaseURL.json');
-    // $json_data = json_decode($json,true);
-    // $cleardb_server = $json_data["Host"];
-    // $cleardb_username = $json_data["Username"];
-    // $cleardb_password = $json_data["Password"];
-    // $cleardb_db = $json_data["Database"];
-    // $connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-    // $sqlQuery = "SELECT affiliation FROM affiliations";
-    // $queryResult = mysqli_query($connection, $sqlQuery);
-    // while ($map_output = mysqli_fetch_assoc($queryResult))
-    //   echo "  <option value='".$map_output["affiliation"]."'>".$map_output["affiliation"]."</option> \n";
-    // mysqli_close($connection);
-
-    // echo " </select> <br/><br/> \n";
-
     echo "<b>Operators</b>: <input type='text' name='operator_search' value='%'/> <br/> \n";
     echo " AND <b>Manufacturing Datetime Range</b>:  <input type='datetime-local' name='manufacture_datetime_search_start' value='1970-01-01T00:00'> 
     to <input type='datetime-local' name='manufacture_datetime_search_end' value='2025-12-31T11:59'> <br/> \n";
@@ -196,21 +177,6 @@
     }
     echo " </td > \n";
     echo "</tr> \n";
-    //     echo '<form method="post" action="action_dee.php?id='.$id.'">';
-    // echo "<input type='submit' name='action' value='View'></input>";
-    // echo "</form>";
-    // // The sheet can be edited if the privilege is Editor or Administrator and deleted if the privilege is Administrator
-    // if ($_SESSION["privilege"] == "Editor" || $_SESSION["privilege"] == "Administrator")
-    // {
-    //   echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to edit Dee #'.$id.'?\');">';
-    //   echo "<input type='submit' name='action' value='Edit'></input>";
-    //   echo "</form>";
-    //   if ($_SESSION["privilege"] == "Administrator") {
-    //   echo '<form method="post" action="action_dee.php?id='.$id.'" onsubmit="javascript:return confirm(\'Are you sure you want to delete Dee #'.$id.'?\');">';
-    //   echo "<input type='submit' name='action' value='Delete'></input>";
-    //   echo "</form>";
-
-
     }
 
     mysqli_close($connection);
