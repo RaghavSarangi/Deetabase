@@ -80,7 +80,6 @@
 ?>
 
 <?php
-  // include 'phpqrcode/qrlib.php';
 
   if (isset($_POST["submit"]))
   {
@@ -128,10 +127,11 @@
     }
 
     
-    shell_exec("qr 'https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id' > QR_$id.png");
-    // echo $output;
-    echo '<center><img src="QR_'.$id.'.png"></center>'; 
-    // echo '<center><img src="qrcode_generate.php?id='.$id.'"></center>'; 
+    // shell_exec("qr 'https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id' > QR_$id.png");
+    // echo '<center><img src="QR_'.$id.'.png"></center>'; 
+
+    $output = shell_exec("python testscript.py");
+    echo $output;
   
   }
 
