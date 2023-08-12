@@ -127,7 +127,11 @@
     echo "<b>LOG</b>: Database entry created. ID <b>#$id</b> assigned.<br/> \n";
     }
 
-    echo '<center><img src="qrcode_generate.php?id='.$id.'"></center>';
+    
+    shell_exec("qr 'https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id' > QR_$id.png");
+    // echo $output;
+    echo '<center><img src="QR_'.$id.'.png"></center>'; 
+    // echo '<center><img src="qrcode_generate.php?id='.$id.'"></center>'; 
   
   }
 
