@@ -128,7 +128,8 @@
     
     // shell_exec("qr 'https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id' > QR_$id.png");
     // echo '<center><img src="QR_'.$id.'.png"></center>'; 
-  
+    echo '<center><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id"></center>';
+    
   }
 
 ?>
