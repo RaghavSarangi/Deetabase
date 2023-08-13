@@ -139,11 +139,13 @@ else if ($action == 'Edit') {
     echo '<div class="row">';
 
     echo '<div class="column left">';
-    echo "<b>X-Ray Evaluation</b><br/> <textarea name='xray_evaluation' rows='5' cols='60'>$xray_evaluation</textarea>";
+    echo '<b>X-Ray Evaluation</b><br/> <textarea name="xray_evaluation" rows="5" cols="60" 
+      placeholder="Avoid using single inverted commas (\'\') anywhere.">'.$xray_evaluation.'</textarea>';
     echo "</div>";
 
     echo '<div class="column right">';
-    echo "<b>CMM Evaluation</b><br/> <textarea name='cmm_evaluation' rows='5' cols='60'>$cmm_evaluation</textarea>";
+    echo '<b>CMM Evaluation</b><br/> <textarea name="cmm_evaluation" rows="5" cols="60" 
+      placeholder="Avoid using single inverted commas (\'\') anywhere.">'.$cmm_evaluation.'</textarea>';
     echo "</div>";
 
     echo "</div>";

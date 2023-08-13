@@ -58,12 +58,12 @@
 
       echo '<div class="column left">';
       echo '<b>X-Ray Evaluation</b><br/> <textarea name="xray_evaluation" rows="5" cols="60" 
-      placeholder="Avoid using single inverted commas (\'\')"></textarea>';
+      placeholder="Avoid using single inverted commas (\'\') anywhere."></textarea>';
       echo "</div>";
 
       echo '<div class="column right">';
       echo '<b>CMM Evaluation</b><br/> <textarea name="cmm_evaluation" rows="5" cols="60" 
-      placeholder="Avoid using single inverted commas (\'\')"></textarea>';
+      placeholder="Avoid using single inverted commas (\'\') anywhere."></textarea>';
       echo "</div>";
 
       echo "</div>";
@@ -125,9 +125,7 @@
     // printf("Affected rows (INSERT): %d\n", $connection->affected_rows);
     echo "<b>LOG</b>: Database entry created. ID <b>#$id</b> assigned.<br/> \n";
     }
-    
-    // shell_exec("qr 'https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id=$id' > QR_$id.png");
-    // echo '<center><img src="QR_'.$id.'.png"></center>'; 
+     
     echo '<center><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id='.$id.'"></center>';
     
   }

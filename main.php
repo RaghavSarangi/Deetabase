@@ -23,9 +23,9 @@
       echo "<li><a href='add_dee.php'> <b>Add</b> Dees to the database </a></li> \n";
       echo "<br/> \n";
     }
-    echo "<li><a href='search_dee.php'> Filter-search <b>Dees</b> of the database </a></li> \n";
+    echo "<li><a href='search_dee.php'> <b>Filter-search</b> Dees of the database </a></li> \n";
     echo "<br/> \n";
-    echo "<li><a href='view_all.php'> <b>See all Dees</b> stored in the database </a></li> \n";
+    echo "<li><a href='view_all.php'> <b>See all</b> Dees stored in the database </a></li> \n";
     echo "<br/> \n";
 
     if ($_SESSION["privilege"] == "Administrator") {
