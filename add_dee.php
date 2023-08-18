@@ -126,7 +126,7 @@
     echo "<b>LOG</b>: Database entry created. ID <b>#$id</b> assigned.<br/> \n";
     }
      
-    echo '<center><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cms-tfpx-deetabase-44c33b50f049.herokuapp.com/qrcode_read.php?id='.$id.'"></center>';
+    echo '<center><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://website-link/qrcode_read.php?id='.$id.'"></center>';
     
   }
 
